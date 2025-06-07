@@ -74,7 +74,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 7rem;
-  background-color: rgba(255, 0, 0, 0.15);
+  background-color: rgb(255, 0, 0);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
