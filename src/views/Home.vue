@@ -31,37 +31,25 @@
       <p>Der Löschzug 14 besteht aktuell aus vier Teileinheiten:</p>
 
       <div class="unit-box red">
-        <router-link to="/loschzug" class="unit-link">
+        <router-link to="/loschzug/einsatzabteilung" class="unit-link">
           <h2>Löschzug (LZ14)</h2>
         </router-link>
       </div>
 
       <p>
         Zunächst aus der
-        <a href="/einsatzabteilung" class="link">Einsatzabteilung</a>, die zur
-        Zeit aus über 40 aktiven, ehrenamtlichen Feuerwehrangehörigen besteht.
-        Sie ist seit 2006 im Feuerwehrhaus am
+        <router-link to="/loschzug/einsatzabteilung" class="link"
+          >Einsatzabteilung</router-link
+        >, die zur Zeit aus über 40 aktiven, ehrenamtlichen Feuerwehrangehörigen
+        besteht. Sie ist seit 2006 im Feuerwehrhaus am
         <a href="https://maps.app.goo.gl/rxRhnE4gPeLUbDV3A" class="link"
           >Kampstraße 1 in Gelsenkirchen-Horst</a
         >
         stationiert.
       </p>
 
-      <div class="unit-box green">
-        <router-link to="/abc-einheit" class="unit-link">
-          <h2>ABC-Einheit</h2>
-        </router-link>
-      </div>
-
-      <p>
-        Die Erkundung von ABC-Gefahrstoffen ist eine Spezialaufgabe des
-        Löschzuges 14. Sie ist in einer eigenen Untergliederung der
-        Einsatzabteilung, der
-        <a href="/abc-einheit" class="link">ABC-Einheit</a>, organisiert.
-      </p>
-
       <div class="unit-box orange">
-        <router-link to="/jugendfeuerwehr" class="unit-link">
+        <router-link to="/loschzug/jugendfeuerwehr" class="unit-link">
           <h2>Jugendfeuerwehr (JF14)</h2>
         </router-link>
       </div>
@@ -69,15 +57,31 @@
       <p>
         Dem Löschzug 14 ist eine Gruppe der
         <a
-          href="https://www.gelsenkirchen.de/de/rathaus/buergerservice/feuerwehr/jugendfeuerwehr.aspx"
+          href="https://www.gelsenkirchen.de/de/rathaus/buergerservice/feuerwehr/Jugendfeuerwehr/"
           class="link"
           >Jugendfeuerwehr Gelsenkirchen</a
         >
         angegliedert. Die
-        <a href="/jugendfeuerwehr" class="link">Jugendgruppe 14 – Horst</a>, die
-        1989 gegründet wurde und die ebenfalls in der Kampstraße 1 beheimatet
-        ist, besteht zur Zeit aus über 20 Jugendlichen im Alter von 10 bis 18
-        Jahren.
+        <router-link to="/loschzug/jugendfeuerwehr" class="link"
+          >Jugendgruppe 14 – Horst</router-link
+        >, die 1989 gegründet wurde und die ebenfalls in der Kampstraße 1
+        beheimatet ist, besteht zur Zeit aus über 20 Jugendlichen im Alter von
+        10 bis 18 Jahren.
+      </p>
+
+      <div class="unit-box green">
+        <router-link to="/loschzug/dekon-einheit" class="unit-link">
+          <h2>Dekon-Einheit</h2>
+        </router-link>
+      </div>
+
+      <p>
+        Die Dekontamination von Einsatzkräften und Zivilpersonen ist eine
+        Spezialaufgabe des Löschzuges 14. Sie ist in einer eigenen
+        Untergliederung der Einsatzabteilung, der
+        <router-link to="/loschzug/dekon-einheit" class="link"
+          >Dekon-Einheit</router-link
+        >, organisiert.
       </p>
 
       <div class="unit-box brown">

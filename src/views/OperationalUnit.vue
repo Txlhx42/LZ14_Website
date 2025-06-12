@@ -1,8 +1,16 @@
 <template>
   <div class="operational-unit">
-    <h1 class="page-title">Einsatzabteilung</h1>
-
     <div class="content">
+      <h1 class="page-title">Einsatzabteilung</h1>
+
+      <div class="image-section">
+        <img
+          src="@/components/images/ff_gruppenfoto.jpg"
+          alt="Gruppenfoto der Einsatzabteilung des Löschzugs 14"
+          class="group-photo"
+        />
+      </div>
+
       <div class="leadership-section">
         <div class="section-header">
           <h2>Zug- und Verbandsführer</h2>
@@ -332,6 +340,20 @@
     font-size: 1.1rem;
     padding: 0.6rem 0;
   }
+}
+
+.image-section {
+  margin: 0 0 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.group-photo {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 </style>
 
