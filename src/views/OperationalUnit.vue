@@ -5,7 +5,7 @@
 
       <div class="image-section">
         <img
-          src="@/components/images/ff_gruppenfoto.jpg"
+          src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDHXlctrzakomscOpX15fCMRQgGtLvVZJiq7jE"
           alt="Gruppenfoto der Einsatzabteilung des Löschzugs 14"
           class="group-photo"
         />
@@ -17,31 +17,54 @@
         </div>
         <ul class="member-list">
           <li>
-            <img src="@/assets/ranks/boi.png" alt="BOI" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDwOzyC5lbmsFVTO5tUl0pMfQ9axrkABZ7NJcL"
+              alt="BOI"
+              class="rank-image"
+            />
             <span class="rank">BOI</span> Max Weber
           </li>
           <li>
-            <img src="@/assets/ranks/boi.png" alt="BOI" class="rank-image" />
-            <span class="rank">BOI</span> Thomas Schmidt
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDIH9pS3ZUJhENR3wYFouBeC8xXZTVMdtS2Q4P"
+              alt="BM"
+              class="rank-image"
+            />
+            <span class="rank">BM</span> Thomas Schmidt
             <span class="note">(stellv. Sprecher der FF Gelsenkirchen)</span>
           </li>
           <li>
-            <img src="@/assets/ranks/bi.png" alt="BI" class="rank-image" />
-            <span class="rank">BI</span> Michael Fischer
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDzsqbXSKINSO1jaE8gT2QlG6Wws73MAnHBioc"
+              alt="BI"
+              class="rank-image"
+            />
+            <span class="rank">BI</span> Martin Schmidt
           </li>
           <li>
-            <img src="@/assets/ranks/boi.png" alt="BOI" class="rank-image" />
-            <span class="rank">BOI</span> Daniel Hoffmann
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDIH9pS3ZUJhENR3wYFouBeC8xXZTVMdtS2Q4P"
+              alt="BM"
+              class="rank-image"
+            />
+            <span class="rank">BM</span> Daniel Hoffmann
             <span class="note">(stellv. Sprecher der FF Gelsenkirchen)</span>
           </li>
           <li>
-            <img src="@/assets/ranks/boi.png" alt="BOI" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDwOzyC5lbmsFVTO5tUl0pMfQ9axrkABZ7NJcL"
+              alt="BOI"
+              class="rank-image"
+            />
             <span class="rank">BOI</span> Felix Wagner
           </li>
           <li>
-            <img src="@/assets/ranks/bi.png" alt="BI" class="rank-image" />
-            <span class="rank">BI</span> Leon Bauer
-            <span class="note">(stellv. Führer ABC-Einheit)</span>
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDzsqbXSKINSO1jaE8gT2QlG6Wws73MAnHBioc"
+              alt="BI"
+              class="rank-image"
+            />
+            <span class="rank">BI</span> Lisa Wagner
           </li>
         </ul>
       </div>
@@ -52,27 +75,67 @@
         </div>
         <ul class="member-list">
           <li>
-            <img src="@/assets/ranks/ubm.png" alt="UBM" class="rank-image" />
-            <span class="rank">UBM</span> Jonas Müller
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDe3XbtxPiyPqY6UsIcM5ADEQS7CgRbwhedrzT"
+              alt="UBM"
+              class="rank-image"
+            />
+            <span class="rank">UBM</span> Peter Wagner
           </li>
           <li>
-            <img src="@/assets/ranks/ubm.png" alt="UBM" class="rank-image" />
-            <span class="rank">UBM</span> Laura Koch
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDe3XbtxPiyPqY6UsIcM5ADEQS7CgRbwhedrzT"
+              alt="UBM"
+              class="rank-image"
+            />
+            <span class="rank">UBM</span> Julia Becker
           </li>
           <li>
-            <img src="@/assets/ranks/obm.png" alt="OBM" class="rank-image" />
-            <span class="rank">OBM</span> Simon Peters
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDA6J2NrXmPGYgu6ZUnkdItEJ0NzDo8js7Ti2F"
+              alt="OBM"
+              class="rank-image"
+            />
+            <span class="rank">OBM</span> Markus Weber
           </li>
           <li>
-            <img src="@/assets/ranks/hbm.png" alt="HBM" class="rank-image" />
-            <span class="rank">HBM</span> Alexander Richter
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDA6J2NrXmPGYgu6ZUnkdItEJ0NzDo8js7Ti2F"
+              alt="OBM"
+              class="rank-image"
+            />
+            <span class="rank">OBM</span> Andreas Müller
           </li>
           <li>
-            <img src="@/assets/ranks/ubm.png" alt="UBM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDvmCcsgYcBxQ4IeKR3o5ap21rmfth67MLvUbq"
+              alt="HBM"
+              class="rank-image"
+            />
+            <span class="rank">HBM</span> Christian Becker
+          </li>
+          <li>
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDvmCcsgYcBxQ4IeKR3o5ap21rmfth67MLvUbq"
+              alt="HBM"
+              class="rank-image"
+            />
+            <span class="rank">HBM</span> Sarah Meyer
+          </li>
+          <li>
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDe3XbtxPiyPqY6UsIcM5ADEQS7CgRbwhedrzT"
+              alt="UBM"
+              class="rank-image"
+            />
             <span class="rank">UBM</span> Julia Schneider
           </li>
           <li>
-            <img src="@/assets/ranks/ubm.png" alt="UBM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDe3XbtxPiyPqY6UsIcM5ADEQS7CgRbwhedrzT"
+              alt="UBM"
+              class="rank-image"
+            />
             <span class="rank">UBM</span> Markus Wolf
           </li>
         </ul>
@@ -84,27 +147,51 @@
         </div>
         <ul class="member-list">
           <li>
-            <img src="@/assets/ranks/hfm.png" alt="HFF" class="rank-image" />
-            <span class="rank">HFF</span> Sarah Meyer
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDM8c3cgRuBFQx8gSHNtJXcqD7UyKETn0OwPeb"
+              alt="HFM"
+              class="rank-image"
+            />
+            <span class="rank">HFM</span> Michael Schmidt
           </li>
           <li>
-            <img src="@/assets/ranks/ofm.png" alt="OFM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDM8c3cgRuBFQx8gSHNtJXcqD7UyKETn0OwPeb"
+              alt="OFM"
+              class="rank-image"
+            />
             <span class="rank">OFM</span> David Klein
           </li>
           <li>
-            <img src="@/assets/ranks/hfm.png" alt="HFF" class="rank-image" />
-            <span class="rank">HFF</span> Lisa Schäfer
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDM8c3cgRuBFQx8gSHNtJXcqD7UyKETn0OwPeb"
+              alt="HFM"
+              class="rank-image"
+            />
+            <span class="rank">HFM</span> Lisa Schäfer
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FM"
+              class="rank-image"
+            />
             <span class="rank">FM</span> Christian Becker
           </li>
           <li>
-            <img src="@/assets/ranks/ofm.png" alt="OFF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDgguBju9DvERhzubdI0f2kTrM5HWwmtaBqKGp"
+              alt="OFF"
+              class="rank-image"
+            />
             <span class="rank">OFF</span> Sophie Wagner
           </li>
           <li>
-            <img src="@/assets/ranks/hfm.png" alt="HFM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDM8c3cgRuBFQx8gSHNtJXcqD7UyKETn0OwPeb"
+              alt="HFM"
+              class="rank-image"
+            />
             <span class="rank">HFM</span> Tim Schulz
           </li>
         </ul>
@@ -116,64 +203,115 @@
         </div>
         <ul class="member-list">
           <li>
-            <img src="@/assets/ranks/ofm.png" alt="OFM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDgguBju9DvERhzubdI0f2kTrM5HWwmtaBqKGp"
+              alt="OFM"
+              class="rank-image"
+            />
             <span class="rank">OFM</span> Lukas Becker
           </li>
           <li>
-            <img src="@/assets/ranks/ofm.png" alt="OFF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDgguBju9DvERhzubdI0f2kTrM5HWwmtaBqKGp"
+              alt="OFF"
+              class="rank-image"
+            />
             <span class="rank">OFF</span> Nina Hoffmann
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FM"
+              class="rank-image"
+            />
             <span class="rank">FM</span> Sebastian Klein
           </li>
           <li>
-            <img src="@/assets/ranks/ofm.png" alt="OFF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDgguBju9DvERhzubdI0f2kTrM5HWwmtaBqKGp"
+              alt="OFF"
+              class="rank-image"
+            />
             <span class="rank">OFF</span> Marie Weber
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FM"
+              class="rank-image"
+            />
             <span class="rank">FM</span> Tobias Schmidt
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FF"
+              class="rank-image"
+            />
             <span class="rank">FF</span> Anna Müller
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FM"
+              class="rank-image"
+            />
             <span class="rank">FM</span> Paul Wagner
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FF"
+              class="rank-image"
+            />
             <span class="rank">FF</span> Emma Koch
           </li>
           <li>
-            <img src="@/assets/ranks/hfm.png" alt="HFM" class="rank-image" />
-            <span class="rank">HFM</span> Stefan Meyer
-            <span class="note">(Notfallseelsorger)</span>
-          </li>
-          <li>
-            <img src="@/assets/ranks/ff.png" alt="FF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FF"
+              class="rank-image"
+            />
             <span class="rank">FF</span> Jana Peters
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FM"
+              class="rank-image"
+            />
             <span class="rank">FM</span> Oliver Richter
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FF"
+              class="rank-image"
+            />
             <span class="rank">FF</span> Sophie Bauer
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FF" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FF"
+              class="rank-image"
+            />
             <span class="rank">FF</span> Lena Fischer
           </li>
           <li>
-            <img src="@/assets/ranks/ff.png" alt="FM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDYKZg2iUHELuKRxqfGNUIrmDZFydkpc8tsgSX"
+              alt="FM"
+              class="rank-image"
+            />
             <span class="rank">FM</span> Marco Schneider
           </li>
           <li>
-            <img src="@/assets/ranks/ofm.png" alt="OFM" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDgguBju9DvERhzubdI0f2kTrM5HWwmtaBqKGp"
+              alt="OFM"
+              class="rank-image"
+            />
             <span class="rank">OFM</span> Thomas Wolf
           </li>
         </ul>
@@ -185,11 +323,19 @@
         </div>
         <ul class="member-list">
           <li>
-            <img src="@/assets/ranks/ffa.png" alt="FFA" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDcQkQn02CofZjTSMGPyE6qB1YrgA0OdvUW2bQ"
+              alt="FFA"
+              class="rank-image"
+            />
             <span class="rank">FFA</span> Lisa Wagner
           </li>
           <li>
-            <img src="@/assets/ranks/ffa.png" alt="FMA" class="rank-image" />
+            <img
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDcQkQn02CofZjTSMGPyE6qB1YrgA0OdvUW2bQ"
+              alt="FMA"
+              class="rank-image"
+            />
             <span class="rank">FMA</span> Marcel Hutsch
           </li>
         </ul>

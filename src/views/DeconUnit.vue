@@ -8,7 +8,7 @@
           Foto der Dekon-Einheit
         </h2>
         <img
-          src="@/components/images/dekon.jpg"
+          src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDTH3u9eg9icKvV0eUFrq3Qo4I8JYS2Rfgst5X"
           alt="Die Dekon-Einheit des Löschzugs 14 bei einer Übung"
           class="main-image"
         />

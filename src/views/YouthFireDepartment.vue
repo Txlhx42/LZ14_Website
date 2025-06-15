@@ -6,7 +6,7 @@
       <div class="image-section" aria-labelledby="group-photo-heading">
         <h2 id="group-photo-heading" class="visually-hidden">Gruppenfoto</h2>
         <img
-          src="@/components/images/jf_gruppenfoto.jpg"
+          src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDbuUfcVrGgYTZ7H4S2CR5ov1k96qwFKiPJXOn"
           alt="Gruppenfoto der Jugendfeuerwehr des Löschzugs 14"
           class="main-image"
         />

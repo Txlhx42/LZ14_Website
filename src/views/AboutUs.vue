@@ -6,7 +6,7 @@
       <div class="image-section" aria-labelledby="main-photo-heading">
         <h2 id="main-photo-heading" class="visually-hidden">Hauptbild</h2>
         <img
-          src="@/components/images/fwge.jpg"
+          src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDiCH7APjUCuGmKH45g8t0MPDrnZNh6Rxw7bjy"
           alt="Feuerwehrhaus und Fahrzeuge der Feuerwehr Gelsenkirchen"
           class="main-image"
         />
