@@ -217,7 +217,7 @@
 <style scoped>
 .operational-unit {
   padding: 2rem 0;
-  margin-top: 120px; /* To account for fixed navbar */
+  margin-top: 82px;
 }
 
 .page-title {
@@ -339,6 +339,35 @@
   .member-list li {
     font-size: 1.1rem;
     padding: 0.6rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    max-width: 100%;
+    padding: 0 6px;
+  }
+  .page-title {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-header h2 {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+  .member-list li {
+    font-size: 0.98rem;
+    gap: 0.5rem;
+  }
+  .rank-image {
+    width: 28px;
+    height: 28px;
+  }
+  .divider {
+    width: 60px;
+  }
+  .operational-unit {
+    margin-top: 60px;
   }
 }
 

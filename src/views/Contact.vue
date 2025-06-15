@@ -59,7 +59,7 @@
               </tr>
               <tr>
                 <th scope="row">Mittwoch (JF14)</th>
-                <td>18:00-20:00</td>
+                <td>18:30-20:00</td>
               </tr>
               <tr>
                 <th scope="row">Donnerstag</th>
@@ -88,7 +88,7 @@
 <style scoped>
 .contact {
   padding: 2rem 0;
-  margin-top: 120px;
+  margin-top: 82px;
 }
 
 .content {
@@ -251,6 +251,42 @@ table.schedule {
 
   .schedule {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    padding: 0 6px;
+  }
+  .page-title {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  .contact-details {
+    gap: 1rem;
+  }
+  .schedule th,
+  .schedule td {
+    padding: 0.4rem;
+    font-size: 0.95rem;
+  }
+  .schedule {
+    font-size: 0.85rem;
+  }
+  .emergency-notice {
+    font-size: 1.05rem;
+    padding: 0.5rem;
+  }
+  .intro-text {
+    font-size: 1rem;
+  }
+  .contact {
+    margin-top: 60px;
   }
 }
 

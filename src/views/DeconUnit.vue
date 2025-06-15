@@ -111,7 +111,7 @@
 <style scoped>
 .decon-unit {
   padding: 2rem 0;
-  margin-top: 120px;
+  margin-top: 82px;
 }
 
 .content {
@@ -143,7 +143,8 @@
 .image-section {
   margin: 2rem auto 4rem;
   text-align: center;
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
 }
 
 .main-image {
@@ -276,22 +277,63 @@ li::before {
     width: 90%;
     padding: 0 20px;
   }
-
+  .image-section {
+    width: 100%;
+  }
   .page-title {
     font-size: 2.5rem;
   }
-
   h2 {
     font-size: 1.8rem;
   }
-
   h3 {
     font-size: 1.3rem;
   }
-
   .tasks-grid,
   .vehicles {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    padding: 0 6px;
+  }
+  .image-section {
+    width: 100%;
+  }
+  .page-title {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  h3 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem;
+  }
+  .tasks-grid,
+  .vehicles {
+    gap: 1rem;
+  }
+  .task-card,
+  .vehicle-card,
+  .training-info {
+    padding: 1rem;
+  }
+  .rank-image {
+    width: 28px;
+    height: 28px;
+  }
+  p,
+  li {
+    font-size: 0.98rem;
+  }
+  .decon-unit {
+    margin-top: 60px;
   }
 }
 

@@ -103,7 +103,7 @@
 <style scoped>
 .legal {
   padding: 2rem 0;
-  margin-top: 120px;
+  margin-top: 82px;
 }
 
 .content {
@@ -205,6 +205,32 @@ a:focus {
 
   h2 {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    padding: 0 6px;
+  }
+  .page-title {
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  section {
+    margin-bottom: 1.5rem;
+  }
+  p,
+  li,
+  address {
+    font-size: 0.98rem;
+  }
+  .legal {
+    margin-top: 60px;
   }
 }
 </style>

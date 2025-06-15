@@ -122,6 +122,7 @@
         </div>
       </div>
     </div>
+    <ScrollToTopButton />
   </footer>
 </template>
 
@@ -201,20 +202,28 @@
 }
 
 .footer-section:nth-child(1) {
-  text-align: left;
+  display: block;
+  margin-left: auto;
   margin-right: auto;
-  padding-right: 5rem;
-  margin-left: -5rem;
+  text-align: center;
+  width: 90vw;
+  max-width: 340px;
+  padding: 1.1rem 0.7rem;
 }
 
 .footer-section:nth-child(1) h3 {
   text-decoration: underline;
 }
 
-.footer-section:nth-child(2) {
-  text-align: left;
-  margin: 0 auto;
-  margin-left: 5rem;
+.footer-section:nth-child(2),
+.footer-section:nth-child(4) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 90vw;
+  max-width: 340px;
+  padding: 1.1rem 0.7rem;
 }
 
 .footer-section:nth-child(2) h3 {
@@ -252,6 +261,7 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  margin-bottom: 0.05rem;
 }
 
 .email-container span {
@@ -316,17 +326,51 @@
     flex-direction: column;
     align-items: center;
     padding: 0 2rem;
+    gap: 1.2rem;
   }
-
+  .footer-section,
+  .footer-section:nth-child(1),
+  .footer-section:nth-child(2),
+  .footer-section:nth-child(4) {
+    margin-bottom: 0;
+    padding-bottom: 0.2rem;
+    background: none;
+    box-shadow: none;
+  }
+  .footer-section:last-child {
+    margin-bottom: 0;
+  }
   .footer-section {
     width: 100%;
     text-align: center;
-    padding: 1rem 0;
-    margin: 0;
+    padding: 0.7rem 0 0.3rem 0;
+    margin: 0 0 1.2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
   }
-
   .footer-section h3 {
     text-align: center !important;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  .footer-section p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    word-break: break-word;
+  }
+  .footer-section .footer-link {
+    overflow-wrap: anywhere;
+    display: block;
+    margin-top: 0.05rem;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 500;
   }
 }
 
@@ -334,15 +378,111 @@
   .footer-wrapper {
     padding: 2rem 1rem;
   }
-
   .social-links {
     justify-content: center;
+  }
+  .footer-content {
+    padding: 0 0.5rem;
+    gap: 0.7rem;
+  }
+  .footer-section {
+    padding: 0.5rem 0 0.2rem 0;
+    margin: 0 0 0.7rem 0;
+  }
+  .footer-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .footer-section p {
+    font-size: 0.97rem;
+    margin: 0.2rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-wrapper {
+    padding: 1rem 2px;
+  }
+  .footer-content {
+    padding: 0 2px;
+    gap: 1.2rem;
+  }
+  .footer-section {
+    padding: 1.1rem 0.7rem 0.7rem 0.7rem;
+    font-size: 0.98rem;
+    margin: 0 0 1.2rem 0;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-section:nth-child(1) {
+    align-items: center;
+    text-align: center;
+  }
+  .footer-section h3 {
+    font-size: 1.08rem;
+    margin-bottom: 0.6rem;
+    margin-top: 0.2rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+  .footer-section p {
+    font-size: 0.97rem;
+    margin: 0.18rem 0;
+    text-align: inherit;
+    line-height: 1.5;
+    word-break: break-word;
+    white-space: normal;
+    color: #fff;
+  }
+  .footer-section .footer-link {
+    overflow-wrap: anywhere;
+    display: block;
+    margin-top: 0.2rem;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  .footer-bottom {
+    padding: 1rem 2px 0;
+    font-size: 0.95rem;
+  }
+  .copyright-legal {
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .footer-wrapper {
+    padding: 2rem 1rem;
+  }
+  .social-links {
+    justify-content: center;
+  }
+  .scroll-to-top {
+    right: 1.2rem !important;
+    bottom: 1.2rem !important;
+    font-size: 1em;
+    padding: 0.5em 1em;
   }
 }
 </style>
 
 <script>
+import ScrollToTopButton from "./ScrollToTopButton.vue";
+
 export default {
   name: "Footer",
+  components: { ScrollToTopButton },
 };
 </script>

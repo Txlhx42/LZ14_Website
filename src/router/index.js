@@ -3,9 +3,10 @@ import Home from "../views/Home.vue";
 import AboutUs from "../views/AboutUs.vue";
 import OperationalUnit from "../views/OperationalUnit.vue";
 import YouthFireDepartment from "../views/YouthFireDepartment.vue";
-import DekonUnit from "../views/DekonUnit.vue";
+import DeconUnit from "../views/DeconUnit.vue";
 import Contact from "../views/Contact.vue";
 import Legal from "../views/Legal.vue";
+import ElderDepartment from "../views/ElderDepartment.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +34,7 @@ const router = createRouter({
     {
       path: "/loschzug/dekon-einheit",
       name: "dekon-unit",
-      component: DekonUnit,
+      component: DeconUnit,
     },
     {
       path: "/kontakt",
@@ -45,7 +46,15 @@ const router = createRouter({
       name: "legal",
       component: Legal,
     },
+    {
+      path: "/loschzug/ehrenabteilung",
+      name: "elder-department",
+      component: ElderDepartment,
+    },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 };
+  },
 });
 
 export default router;

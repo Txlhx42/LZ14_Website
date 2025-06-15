@@ -4,6 +4,7 @@ import Footer from "./components/Footer.vue";
 </script>
 
 <template>
+  <!--Code written by @Muhammed Cavdarci ©2025-->
   <div class="app">
     <Navbar />
     <main class="main-content">

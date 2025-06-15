@@ -85,7 +85,7 @@
       </p>
 
       <div class="unit-box brown">
-        <router-link to="/ehrenabteilung" class="unit-link">
+        <router-link to="/loschzug/ehrenabteilung" class="unit-link">
           <h2>Ehrenabteilung</h2>
         </router-link>
       </div>
@@ -94,9 +94,10 @@
         Für diejenigen Feuerwehrangehörigen, die nach langer Dienstzeit aus
         ihrem Ehrenamt beim Löschzug 14 ausscheiden, gibt es schließlich noch
         die
-        <a href="/ehrenabteilung" class="link">Ehrenabteilung</a>. Sie
-        ermöglicht die Aufrechterhaltung des Kontakts zum Löschzug auch nach dem
-        Ausscheiden aus dem aktiven Feuerwehrdienst.
+        <router-link to="/loschzug/ehrenabteilung" class="link"
+          >Ehrenabteilung</router-link
+        >. Sie ermöglicht die Aufrechterhaltung des Kontakts zum Löschzug auch
+        nach dem Ausscheiden aus dem aktiven Feuerwehrdienst.
       </p>
 
       <div class="recruitment-section">
@@ -124,7 +125,7 @@
 <style scoped>
 .home {
   padding: 2rem 0;
-  margin-top: 120px; /* To account for fixed navbar */
+  margin-top: 82px;
   overflow-x: hidden;
 }
 
@@ -232,6 +233,12 @@ p {
 @media (min-width: 1024px) {
   .home {
     padding: 2rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .home {
+    margin-top: 60px;
   }
 }
 

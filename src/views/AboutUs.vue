@@ -17,8 +17,108 @@
         <p>
           Der Löschzug 14 der Freiwilligen Feuerwehr Gelsenkirchen-Horst steht
           für Engagement, Kameradschaft und professionelle Hilfe in
-          Notsituationen. Seit über 140 Jahren sind wir ein wichtiger Teil der
+          Notsituationen. Seit über 120 Jahren sind wir ein wichtiger Teil der
           Sicherheitsarchitektur in unserem Stadtteil.
+        </p>
+        <p>
+          Als einer der ältesten Löschzüge der Stadt Gelsenkirchen haben wir
+          eine reiche Tradition und gleichzeitig einen modernen Ansatz in der
+          Brandbekämpfung und technischen Hilfeleistung. Unser Team besteht aus
+          engagierten Kameradinnen und Kameraden, die sich ehrenamtlich für die
+          Sicherheit der Bürgerinnen und Bürger einsetzen.
+        </p>
+      </section>
+
+      <section class="history-section" aria-labelledby="history-heading">
+        <h2 id="history-heading">Unsere Geschichte</h2>
+        <p>
+          Der Löschzug 14 wurde im Jahr 1902 als eine der ersten Einheiten der
+          Freiwilligen Feuerwehr Gelsenkirchen gegründet. In den Anfangsjahren
+          war der Löschzug hauptsächlich mit Handdruckspritzen und einfacher
+          Ausrüstung ausgestattet. Die Kameraden mussten damals noch mit
+          Pferdegespannen zu den Einsatzstellen fahren.
+        </p>
+        <p>
+          Besonders prägend für die Geschichte des Löschzugs waren die
+          Herausforderungen während des Zweiten Weltkriegs und der
+          Wiederaufbauphase. In dieser Zeit bewies der Löschzug 14 seine
+          Unverzichtbarkeit für die Sicherheit der Bevölkerung. Die Kameraden
+          leisteten unter schwierigsten Bedingungen ihren Dienst und halfen bei
+          der Bewältigung der Kriegsfolgen.
+        </p>
+        <p>
+          Mit der Zeit entwickelte sich die Technik weiter, und der Löschzug
+          wurde mit modernen Fahrzeugen und Gerätschaften ausgerüstet. Heute
+          verfügen wir über ein breites Spektrum an Einsatzfahrzeugen und
+          modernster Ausrüstung. Die Entwicklung von der Handdruckspritze bis
+          hin zu den heutigen HLF (Hilfeleistungslöschgruppenfahrzeugen) zeigt
+          den technischen Fortschritt unserer Wehr.
+        </p>
+        <p>
+          Ein wichtiger Meilenstein in unserer Geschichte war die Gründung der
+          Jugendfeuerwehr im Jahr 1972. Seitdem haben wir zahlreiche junge
+          Menschen ausgebildet und für den Feuerwehrdienst begeistert. Viele
+          unserer heutigen aktiven Kameradinnen und Kameraden haben ihre
+          Feuerwehrkarriere in unserer Jugendfeuerwehr begonnen.
+        </p>
+      </section>
+
+      <section class="mission-section" aria-labelledby="mission-heading">
+        <h2 id="mission-heading">Unsere Aufgaben</h2>
+        <p>
+          Als Freiwillige Feuerwehr sind wir für folgende Aufgaben zuständig:
+        </p>
+        <ul aria-label="Unsere Hauptaufgaben">
+          <li>Brandbekämpfung und technische Hilfeleistung</li>
+          <li>Rettung von Menschen und Tieren aus Notlagen</li>
+          <li>Schutz vor Gefahren durch Naturereignisse</li>
+          <li>Unterstützung bei Großschadenslagen</li>
+          <li>Brandschutzerziehung und -aufklärung</li>
+        </ul>
+        <p>
+          Neben den klassischen Aufgaben der Brandbekämpfung sind wir auch
+          spezialisiert auf:
+        </p>
+        <ul aria-label="Unsere Spezialisierungen">
+          <li>Technische Hilfeleistung bei Verkehrsunfällen</li>
+          <li>Wasserschadenbekämpfung</li>
+          <li>Einsätze bei Unwettern und Sturm</li>
+          <li>Unterstützung der Berufsfeuerwehr bei Großschadenslagen</li>
+          <li>Brandschutz bei öffentlichen Veranstaltungen</li>
+        </ul>
+      </section>
+
+      <section class="values-section" aria-labelledby="values-heading">
+        <h2 id="values-heading">Unsere Werte</h2>
+        <p>Als Freiwillige Feuerwehr leben wir nach folgenden Grundwerten:</p>
+        <ul aria-label="Unsere Grundwerte">
+          <li>
+            Kameradschaft und Zusammenhalt - Wir stehen füreinander ein und
+            unterstützen uns gegenseitig, sowohl im Einsatz als auch im
+            täglichen Leben.
+          </li>
+          <li>
+            Ehrlichkeit und Vertrauen - Offene Kommunikation und gegenseitiges
+            Vertrauen sind die Grundlage unserer Zusammenarbeit.
+          </li>
+          <li>
+            Verantwortungsbewusstsein - Wir übernehmen Verantwortung für unsere
+            Aufgaben und Entscheidungen.
+          </li>
+          <li>
+            Bereitschaft zur Hilfe - Wir sind rund um die Uhr einsatzbereit, um
+            Menschen in Not zu helfen.
+          </li>
+          <li>
+            Fachkompetenz und Weiterbildung - Regelmäßige Übungen und
+            Fortbildungen sind für uns selbstverständlich.
+          </li>
+        </ul>
+        <p>
+          Diese Werte prägen nicht nur unseren Dienst, sondern auch unser
+          Zusammenleben in der Feuerwehr. Sie sind die Grundlage für die
+          erfolgreiche Arbeit unseres Löschzugs und die Basis für die Ausbildung
+          unserer jungen Kameradinnen und Kameraden.
         </p>
       </section>
 
@@ -75,7 +175,7 @@
 <style scoped>
 .about-us {
   padding: 2rem 0;
-  margin-top: 120px;
+  margin-top: 82px;
 }
 
 .content {
@@ -230,6 +330,42 @@ li::before {
   .benefits,
   .contact-info {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    width: 100%;
+    padding: 0 6px;
+  }
+  .image-section {
+    width: 100%;
+    margin: 1rem 0 2rem 0;
+  }
+  .main-image {
+    border-radius: 6px;
+  }
+  .page-title {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+  h3 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem;
+  }
+  section {
+    margin-bottom: 2rem;
+  }
+  p,
+  li {
+    font-size: 0.98rem;
+  }
+  .about-us {
+    margin-top: 60px;
   }
 }
 
