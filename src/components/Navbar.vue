@@ -3,7 +3,7 @@
     <div class="navbar-left">
       <router-link to="/" class="logo-link" aria-label="Zur Startseite">
         <img
-          src="./images/logo_ffgelz14.png"
+          src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDdnvAbKh1igdeYP13TlByhZjpRH6J4trCaIDq"
           alt="Logo der Freiwilligen Feuerwehr Gelsenkirchen Löschzug 14"
           class="logo"
         />
@@ -176,7 +176,7 @@
         <div class="mobile-menu-header">
           <router-link to="/" class="logo-link" aria-label="Zur Startseite">
             <img
-              src="./images/logo_ffgelz14.png"
+              src="https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDdnvAbKh1igdeYP13TlByhZjpRH6J4trCaIDq"
               alt="Logo der Freiwilligen Feuerwehr Gelsenkirchen Löschzug 14"
               class="logo"
             />
