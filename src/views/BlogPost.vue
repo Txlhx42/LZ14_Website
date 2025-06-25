@@ -32,7 +32,7 @@
         <img :src="post.image" :alt="post.title" />
       </div>
 
-      <div class="post-content" v-html="post.content"></div>
+      <div class="post-content" v-html="sanitizedContent(post.content)"></div>
 
       <div class="post-footer">
         <router-link to="/aktuelles" class="back-link">
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import DOMPurify from "dompurify";
+
 export default {
   name: "BlogPost",
   data() {
@@ -83,6 +85,9 @@ export default {
         hour: "2-digit",
         minute: "2-digit",
       });
+    },
+    sanitizedContent(content) {
+      return DOMPurify.sanitize(content);
     },
   },
 };
