@@ -7,6 +7,10 @@ import DeconUnit from "../views/DeconUnit.vue";
 import Contact from "../views/Contact.vue";
 import Legal from "../views/Legal.vue";
 import ElderDepartment from "../views/ElderDepartment.vue";
+import Aktuelles from "../views/Aktuelles.vue";
+import BlogPost from "../views/BlogPost.vue";
+import AdminDashboard from "../views/AdminDashboard.vue";
+import AdminLogin from "../views/AdminLogin.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +54,35 @@ const router = createRouter({
       path: "/loschzug/ehrenabteilung",
       name: "elder-department",
       component: ElderDepartment,
+    },
+    {
+      path: "/aktuelles",
+      name: "aktuelles",
+      component: Aktuelles,
+    },
+    {
+      path: "/aktuelles/:id",
+      name: "blog-post",
+      component: BlogPost,
+    },
+    {
+      path: "/admin-login",
+      name: "admin-login",
+      component: AdminLogin,
+    },
+    {
+      path: "/admin",
+      name: "admin-dashboard",
+      component: AdminDashboard,
+      beforeEnter: (to, from, next) => {
+        const isAuthenticated =
+          localStorage.getItem("adminAuthenticated") === "true";
+        if (isAuthenticated) {
+          next();
+        } else {
+          next("/admin-login");
+        }
+      },
     },
   ],
   scrollBehavior(to, from, savedPosition) {

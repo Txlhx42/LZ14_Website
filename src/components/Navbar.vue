@@ -17,6 +17,7 @@
         >Home</router-link
       >
       <router-link to="/uber-uns" class="nav-item">Über uns</router-link>
+      <router-link to="/aktuelles" class="nav-item">Aktuelles</router-link>
       <div class="dropdown">
         <button
           class="nav-item dropdown-button"
@@ -204,6 +205,14 @@
               @click.native="closeMobileMenu"
               class="mobile-link"
               >Über uns</router-link
+            >
+          </li>
+          <li class="menu-animate" style="animation-delay: 0.16s">
+            <router-link
+              to="/aktuelles"
+              @click.native="closeMobileMenu"
+              class="mobile-link"
+              >Aktuelles</router-link
             >
           </li>
           <li class="menu-animate" style="animation-delay: 0.24s">
