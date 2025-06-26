@@ -118,12 +118,13 @@ export default {
 <style scoped>
 .admin-login {
   padding: 2rem 0;
-  margin-top: 82px;
-  min-height: calc(100vh - 82px);
+  margin-top: 0;
+  padding-top: 120px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: #f8f9fa;
 }
 
 .login-container {
@@ -223,8 +224,9 @@ export default {
 
 @media (max-width: 600px) {
   .admin-login {
-    margin-top: 60px;
-    min-height: calc(100vh - 60px);
+    margin-top: 0;
+    padding-top: 100px;
+    min-height: 100vh;
   }
 
   .login-container {

@@ -464,8 +464,6 @@
   align-items: center;
   padding: 1rem 7rem;
   background: #cc0000 !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   position: fixed;
   top: 0;
   left: 0;
