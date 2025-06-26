@@ -9,13 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dompurify": "^3.0.6",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.1",
-    "dompurify": "^3.0.6"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
+    "autoprefixer": "^10.4.21",
+    "terser": "^5.43.1",
     "vite": "^6.2.4",
     "vite-plugin-vue-devtools": "^7.7.2"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }

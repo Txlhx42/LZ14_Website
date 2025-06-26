@@ -299,6 +299,14 @@ table.schedule {
     scroll-behavior: auto !important;
   }
 }
+
+/* Fallback für Browser ohne prefers-reduced-motion Support */
+@supports not (prefers-reduced-motion: reduce) {
+  .email-link,
+  .phone a {
+    transition: color 0.2s ease;
+  }
+}
 </style>
 
 <script>

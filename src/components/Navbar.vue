@@ -589,6 +589,11 @@
   display: block;
 }
 
+/* Fallback für Browser ohne focus-within Support */
+.dropdown:focus .dropdown-content {
+  display: block;
+}
+
 .dropdown-button {
   display: flex;
   align-items: center;
@@ -600,7 +605,8 @@
 }
 
 .dropdown:hover .arrow-down,
-.dropdown:focus-within .arrow-down {
+.dropdown:focus-within .arrow-down,
+.dropdown:focus .arrow-down {
   transform: rotate(180deg);
 }
 

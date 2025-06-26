@@ -256,6 +256,12 @@ li::before {
   outline-offset: 2px;
 }
 
+/* Fallback für Browser ohne focus-within Support */
+.task-card:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* Hoher Kontrast Modus Unterstützung */
 @media (forced-colors: active) {
   .task-card,
@@ -265,7 +271,8 @@ li::before {
   }
 
   .task-card:hover,
-  .task-card:focus-within {
+  .task-card:focus-within,
+  .task-card:focus {
     forced-color-adjust: none;
     background-color: Highlight;
     color: HighlightText;
@@ -347,8 +354,16 @@ li::before {
   }
 
   .task-card:hover,
-  .task-card:focus-within {
+  .task-card:focus-within,
+  .task-card:focus {
     transform: none;
+  }
+}
+
+/* Fallback für Browser ohne prefers-reduced-motion Support */
+@supports not (prefers-reduced-motion: reduce) {
+  .task-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 }
 </style>

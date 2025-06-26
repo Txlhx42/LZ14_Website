@@ -226,6 +226,12 @@ li::before {
   outline-offset: 2px;
 }
 
+/* Fallback für Browser ohne focus-within Support */
+.activity-card:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* Hoher Kontrast Modus Unterstützung */
 @media (forced-colors: active) {
   .activity-card,
@@ -239,7 +245,8 @@ li::before {
   }
 
   .activity-card:hover,
-  .activity-card:focus-within {
+  .activity-card:focus-within,
+  .activity-card:focus {
     forced-color-adjust: none;
     background-color: Highlight;
     color: HighlightText;
@@ -324,8 +331,16 @@ li::before {
   }
 
   .activity-card:hover,
-  .activity-card:focus-within {
+  .activity-card:focus-within,
+  .activity-card:focus {
     transform: none;
+  }
+}
+
+/* Fallback für Browser ohne prefers-reduced-motion Support */
+@supports not (prefers-reduced-motion: reduce) {
+  .activity-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 }
 </style>

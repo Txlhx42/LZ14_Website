@@ -288,6 +288,14 @@ li::before {
   outline-offset: 2px;
 }
 
+/* Fallback für Browser ohne focus-within Support */
+.requirements:focus,
+.benefits:focus,
+.contact-info:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 /* Hoher Kontrast Modus Unterstützung */
 @media (forced-colors: active) {
   .requirements,
@@ -301,10 +309,22 @@ li::before {
   .contact-info:hover,
   .requirements:focus-within,
   .benefits:focus-within,
-  .contact-info:focus-within {
+  .contact-info:focus-within,
+  .requirements:focus,
+  .benefits:focus,
+  .contact-info:focus {
     forced-color-adjust: none;
     background-color: Highlight;
     color: HighlightText;
+  }
+}
+
+/* Fallback für Browser ohne prefers-reduced-motion Support */
+@supports not (prefers-reduced-motion: reduce) {
+  .requirements,
+  .benefits,
+  .contact-info {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 }
 

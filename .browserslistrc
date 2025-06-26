@@ -1,0 +1,23 @@
+# Browser-Support für das LZ14-Website Projekt
+
+# Mainstream-Browser mit > 1% Marktanteil
+> 1%
+
+# Letzten 2 Versionen aller Browser
+last 2 versions
+
+# Aktive Browser (nicht "tot")
+not dead
+
+# Internet Explorer explizit ausschließen
+not ie 11
+
+# Spezifische Mindestversionen für wichtige Browser
+Chrome >= 80
+Firefox >= 78
+Safari >= 14
+Edge >= 88
+
+# Mobile Browser
+iOS >= 13
+Android >= 8 
