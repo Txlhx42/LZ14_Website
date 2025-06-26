@@ -45,6 +45,7 @@
 
 <script>
 import DOMPurify from "dompurify";
+import { blogService } from "../utils/supabase.js";
 
 export default {
   name: "BlogPost",
@@ -65,16 +66,17 @@ export default {
     },
   },
   methods: {
-    loadPost() {
+    async loadPost() {
       const postId = this.$route.params.id;
-      const posts = localStorage.getItem("blogPosts");
 
-      if (posts) {
-        const allPosts = JSON.parse(posts);
-        this.post = allPosts.find((p) => p.id === postId);
+      try {
+        this.post = await blogService.getPost(postId);
+      } catch (error) {
+        console.error("Error loading blog post:", error);
+        this.post = null;
+      } finally {
+        this.loading = false;
       }
-
-      this.loading = false;
     },
     formatDate(dateString) {
       const date = new Date(dateString);

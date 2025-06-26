@@ -459,11 +459,20 @@
 </template>
 
 <script>
+import { blogService, authService } from "../utils/supabase.js";
+import {
+  validation,
+  sanitizeHtml,
+  rateLimiter,
+  secureErrorHandler,
+} from "../utils/security.js";
+
 export default {
   name: "AdminDashboard",
   data() {
     return {
       blogPosts: [],
+      loading: false,
       selectedPost: null,
       showCreateForm: false,
       newPost: {
@@ -498,32 +507,49 @@ export default {
       deletePostId: null,
     };
   },
-  mounted() {
-    this.checkAuthentication();
-    this.loadBlogPosts();
+  async mounted() {
+    await this.checkAuthentication();
+    await this.loadBlogPosts();
 
-    // Event-Listener für localStorage Änderungen
-    window.addEventListener("storage", this.handleStorageChange);
+    // Auth State Änderungen überwachen
+    this.authSubscription = authService.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT") {
+        this.$router.push("/admin-login");
+      }
+    });
   },
   beforeUnmount() {
-    // Event-Listener entfernen
-    window.removeEventListener("storage", this.handleStorageChange);
+    // Auth Subscription entfernen
+    if (
+      this.authSubscription &&
+      typeof this.authSubscription.unsubscribe === "function"
+    ) {
+      this.authSubscription.unsubscribe();
+    } else if (
+      this.authSubscription &&
+      typeof this.authSubscription === "function"
+    ) {
+      // Für den Fall, dass es eine Cleanup-Funktion ist
+      this.authSubscription();
+    }
   },
   methods: {
-    checkAuthentication() {
-      const isAuthenticated =
-        localStorage.getItem("adminAuthenticated") === "true";
-      if (!isAuthenticated) {
+    async checkAuthentication() {
+      const user = await authService.getCurrentUser();
+      if (!user) {
         this.$router.push("/admin-login");
         return;
       }
     },
-    loadBlogPosts() {
-      const posts = localStorage.getItem("blogPosts");
-      if (posts) {
-        this.blogPosts = JSON.parse(posts).sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+    async loadBlogPosts() {
+      this.loading = true;
+      try {
+        this.blogPosts = await blogService.getAllPosts();
+      } catch (error) {
+        console.error("Error loading blog posts:", error);
+        alert("Fehler beim Laden der Beiträge");
+      } finally {
+        this.loading = false;
       }
     },
     selectPost(post) {
@@ -534,49 +560,144 @@ export default {
       this.selectedPost = { ...post };
       this.showCreateForm = false;
     },
-    createPost() {
-      const post = {
-        id: Date.now().toString(),
-        ...this.newPost,
-        createdAt: new Date().toISOString(),
-      };
+    async createPost() {
+      // Rate Limiting prüfen
+      if (!rateLimiter.isAllowed("createPost", 3, 60000)) {
+        alert("Zu viele Versuche. Bitte warten Sie eine Minute.");
+        return;
+      }
 
-      this.blogPosts.unshift(post);
-      this.saveBlogPosts();
-      this.resetForm();
-      this.showCreateForm = false;
-      this.$nextTick(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
+      // Input-Validierung
+      if (!validation.isValidTitle(this.newPost.title)) {
+        alert("Titel ist ungültig. Mindestens 3 Zeichen, keine HTML-Tags.");
+        return;
+      }
+
+      if (!validation.isValidContent(this.newPost.content)) {
+        alert("Inhalt ist ungültig. Mindestens 10 Zeichen, maximal 50.000.");
+        return;
+      }
+
+      if (!validation.isValidImageUrl(this.newPost.image)) {
+        alert("Bild-URL ist ungültig. Nur HTTPS-URLs zu Bilddateien erlaubt.");
+        return;
+      }
+
+      if (!validation.isValidAuthor(this.newPost.author)) {
+        alert("Autor-Name ist ungültig. Maximal 100 Zeichen, keine HTML-Tags.");
+        return;
+      }
+
+      this.loading = true;
+      try {
+        // Content sanitizen
+        const sanitizedPost = {
+          ...this.newPost,
+          content: sanitizeHtml(this.newPost.content),
+          title: this.newPost.title.trim(),
+          excerpt: this.newPost.excerpt.trim(),
+          author: this.newPost.author ? this.newPost.author.trim() : "",
+        };
+
+        const newPost = await blogService.createPost(sanitizedPost);
+        this.blogPosts.unshift(newPost);
+        this.resetForm();
+        this.showCreateForm = false;
+        this.$nextTick(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      } catch (error) {
+        const safeError = secureErrorHandler(error, "createPost");
+        alert(safeError);
+      } finally {
+        this.loading = false;
+      }
     },
-    updatePost() {
-      const index = this.blogPosts.findIndex(
-        (p) => p.id === this.selectedPost.id
-      );
-      if (index !== -1) {
-        this.blogPosts[index] = { ...this.selectedPost };
-        this.saveBlogPosts();
+    async updatePost() {
+      // Rate Limiting prüfen
+      if (!rateLimiter.isAllowed("updatePost", 5, 60000)) {
+        alert("Zu viele Versuche. Bitte warten Sie eine Minute.");
+        return;
+      }
+
+      // Input-Validierung
+      if (!validation.isValidTitle(this.selectedPost.title)) {
+        alert("Titel ist ungültig. Mindestens 3 Zeichen, keine HTML-Tags.");
+        return;
+      }
+
+      if (!validation.isValidContent(this.selectedPost.content)) {
+        alert("Inhalt ist ungültig. Mindestens 10 Zeichen, maximal 50.000.");
+        return;
+      }
+
+      if (!validation.isValidImageUrl(this.selectedPost.image)) {
+        alert("Bild-URL ist ungültig. Nur HTTPS-URLs zu Bilddateien erlaubt.");
+        return;
+      }
+
+      if (!validation.isValidAuthor(this.selectedPost.author)) {
+        alert("Autor-Name ist ungültig. Maximal 100 Zeichen, keine HTML-Tags.");
+        return;
+      }
+
+      this.loading = true;
+      try {
+        // Content sanitizen
+        const sanitizedPost = {
+          ...this.selectedPost,
+          content: sanitizeHtml(this.selectedPost.content),
+          title: this.selectedPost.title.trim(),
+          excerpt: this.selectedPost.excerpt.trim(),
+          author: this.selectedPost.author
+            ? this.selectedPost.author.trim()
+            : "",
+        };
+
+        const updatedPost = await blogService.updatePost(
+          this.selectedPost.id,
+          sanitizedPost
+        );
+        const index = this.blogPosts.findIndex(
+          (p) => p.id === this.selectedPost.id
+        );
+        if (index !== -1) {
+          this.blogPosts[index] = updatedPost;
+        }
         this.selectedPost = null;
         this.$nextTick(() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
+      } catch (error) {
+        const safeError = secureErrorHandler(error, "updatePost");
+        alert(safeError);
+      } finally {
+        this.loading = false;
       }
     },
     deletePost(postId) {
       this.showDeleteDialog = true;
       this.deletePostId = postId;
     },
-    confirmDelete() {
-      this.blogPosts = this.blogPosts.filter((p) => p.id !== this.deletePostId);
-      this.saveBlogPosts();
-      this.showDeleteDialog = false;
+    async confirmDelete() {
+      this.loading = true;
+      try {
+        await blogService.deletePost(this.deletePostId);
+        this.blogPosts = this.blogPosts.filter(
+          (p) => p.id !== this.deletePostId
+        );
+        this.showDeleteDialog = false;
+      } catch (error) {
+        console.error("Error deleting post:", error);
+        alert("Fehler beim Löschen des Beitrags");
+      } finally {
+        this.loading = false;
+      }
     },
     cancelDelete() {
       this.showDeleteDialog = false;
     },
-    saveBlogPosts() {
-      localStorage.setItem("blogPosts", JSON.stringify(this.blogPosts));
-    },
+    // saveBlogPosts entfernt - wird jetzt über Supabase gehandelt
     resetForm() {
       this.newPost = {
         title: "",
@@ -656,9 +777,27 @@ export default {
       }
     },
 
-    logout() {
-      localStorage.removeItem("adminAuthenticated");
-      this.$router.push("/admin-login");
+    async logout() {
+      try {
+        // Auth Subscription vor Logout bereinigen
+        if (
+          this.authSubscription &&
+          typeof this.authSubscription.unsubscribe === "function"
+        ) {
+          this.authSubscription.unsubscribe();
+          this.authSubscription = null;
+        }
+
+        // Logout ausführen
+        await authService.signOut();
+
+        // Zur Login-Seite umleiten
+        this.$router.push("/admin-login");
+      } catch (error) {
+        console.error("Logout error:", error);
+        // Trotzdem zur Login-Seite umleiten
+        this.$router.push("/admin-login");
+      }
     },
 
     handlePaste(mode, event) {

@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { blogService } from "../utils/supabase.js";
+
 export default {
   name: "Aktuelles",
   data() {
@@ -50,15 +52,16 @@ export default {
     this.loadBlogPosts();
   },
   methods: {
-    loadBlogPosts() {
-      // Lade Blog-Beiträge aus dem localStorage
-      const posts = localStorage.getItem("blogPosts");
-      if (posts) {
-        this.blogPosts = JSON.parse(posts).sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
+    async loadBlogPosts() {
+      try {
+        this.blogPosts = await blogService.getAllPosts();
+      } catch (error) {
+        console.error("Error loading blog posts:", error);
+        // Fallback - zeige leere Liste
+        this.blogPosts = [];
+      } finally {
+        this.loading = false;
       }
-      this.loading = false;
     },
     viewPost(postId) {
       this.$router.push(`/aktuelles/${postId}`);

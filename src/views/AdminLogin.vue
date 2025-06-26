@@ -6,13 +6,24 @@
 
       <form @submit.prevent="login" class="login-form">
         <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input
+            id="email"
+            v-model="email"
+            type="email"
+            required
+            placeholder="admin@lz14.de"
+          />
+        </div>
+
+        <div class="form-group">
           <label for="password">Passwort</label>
           <input
             id="password"
             v-model="password"
             type="password"
             required
-            placeholder="Admin-Passwort eingeben"
+            placeholder="Ihr Admin-Passwort"
           />
         </div>
 
@@ -20,7 +31,9 @@
           {{ error }}
         </div>
 
-        <button type="submit" class="btn btn-primary">Anmelden</button>
+        <button type="submit" class="btn btn-primary" :disabled="loading">
+          {{ loading ? "Anmeldung läuft..." : "Anmelden" }}
+        </button>
       </form>
 
       <div class="back-link">
@@ -31,33 +44,71 @@
 </template>
 
 <script>
+import { authService } from "../utils/supabase.js";
+import {
+  validation,
+  rateLimiter,
+  secureErrorHandler,
+} from "../utils/security.js";
+
 export default {
   name: "AdminLogin",
   data() {
     return {
+      email: "",
       password: "",
       error: "",
+      loading: false,
     };
   },
   methods: {
-    login() {
-      // Einfache Passwort-Authentifizierung
-      // In einer echten Anwendung sollte dies sicherer implementiert werden
-      if (this.password === "admin123") {
-        // Setze Admin-Status im localStorage
-        localStorage.setItem("adminAuthenticated", "true");
-        this.$router.push("/admin");
-      } else {
-        this.error = "Falsches Passwort";
+    async login() {
+      // Rate Limiting - max 3 Versuche pro Minute
+      if (!rateLimiter.isAllowed("login", 3, 60000)) {
+        this.error = "Zu viele Login-Versuche. Bitte warten Sie eine Minute.";
+        return;
+      }
+
+      // Input-Validierung
+      if (!this.email.trim() || !this.password.trim()) {
+        this.error = "Bitte füllen Sie alle Felder aus";
+        return;
+      }
+
+      if (!validation.isValidEmail(this.email)) {
+        this.error = "Ungültige E-Mail-Adresse";
+        return;
+      }
+
+      if (this.password.length < 6) {
+        this.error = "Passwort muss mindestens 6 Zeichen haben";
+        return;
+      }
+
+      this.loading = true;
+      this.error = "";
+
+      try {
+        // Echte Authentifizierung mit Supabase
+        await authService.signIn(this.email.trim(), this.password);
+
+        // Passwort aus dem Speicher löschen
         this.password = "";
+
+        // Nach erfolgreichem Login zum Admin Dashboard
+        this.$router.push("/admin");
+      } catch (error) {
+        const safeError = secureErrorHandler(error, "login");
+        this.error = safeError;
+      } finally {
+        this.loading = false;
       }
     },
   },
-  mounted() {
+  async mounted() {
     // Prüfe ob bereits angemeldet
-    const isAuthenticated =
-      localStorage.getItem("adminAuthenticated") === "true";
-    if (isAuthenticated) {
+    const user = await authService.getCurrentUser();
+    if (user) {
       this.$router.push("/admin");
     }
   },

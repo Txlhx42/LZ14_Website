@@ -11,6 +11,7 @@ import Aktuelles from "../views/Aktuelles.vue";
 import BlogPost from "../views/BlogPost.vue";
 import AdminDashboard from "../views/AdminDashboard.vue";
 import AdminLogin from "../views/AdminLogin.vue";
+import { authService } from "../utils/supabase.js";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -74,10 +75,9 @@ const router = createRouter({
       path: "/admin",
       name: "admin-dashboard",
       component: AdminDashboard,
-      beforeEnter: (to, from, next) => {
-        const isAuthenticated =
-          localStorage.getItem("adminAuthenticated") === "true";
-        if (isAuthenticated) {
+      beforeEnter: async (to, from, next) => {
+        const user = await authService.getCurrentUser();
+        if (user) {
           next();
         } else {
           next("/admin-login");
