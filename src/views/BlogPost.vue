@@ -21,7 +21,7 @@
         <h1 class="post-title">{{ post.title }}</h1>
 
         <div class="post-meta">
-          <span class="post-date">{{ formatDate(post.createdAt) }}</span>
+          <span class="post-date">{{ formatDate(post.created_at) }}</span>
           <span class="post-author" v-if="post.author"
             >von {{ post.author }}</span
           >
@@ -79,7 +79,15 @@ export default {
       }
     },
     formatDate(dateString) {
+      if (!dateString) return "Unbekanntes Datum";
+
       const date = new Date(dateString);
+
+      // Prüfe ob das Datum gültig ist
+      if (isNaN(date.getTime())) {
+        return "Ungültiges Datum";
+      }
+
       return date.toLocaleDateString("de-DE", {
         year: "numeric",
         month: "long",

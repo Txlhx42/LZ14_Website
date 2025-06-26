@@ -25,7 +25,7 @@
             <h2 class="blog-title">{{ post.title }}</h2>
             <p class="blog-excerpt">{{ post.excerpt }}</p>
             <div class="blog-meta">
-              <span class="blog-date">{{ formatDate(post.createdAt) }}</span>
+              <span class="blog-date">{{ formatDate(post.created_at) }}</span>
               <span class="blog-author" v-if="post.author"
                 >von {{ post.author }}</span
               >
@@ -67,7 +67,15 @@ export default {
       this.$router.push(`/aktuelles/${postId}`);
     },
     formatDate(dateString) {
+      if (!dateString) return "Unbekanntes Datum";
+
       const date = new Date(dateString);
+
+      // Prüfe ob das Datum gültig ist
+      if (isNaN(date.getTime())) {
+        return "Ungültiges Datum";
+      }
+
       return date.toLocaleDateString("de-DE", {
         year: "numeric",
         month: "long",

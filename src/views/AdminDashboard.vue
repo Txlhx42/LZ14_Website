@@ -28,7 +28,7 @@
                 @click="selectPost(post)"
               >
                 <h4>{{ post.title }}</h4>
-                <p class="post-date">{{ formatDate(post.createdAt) }}</p>
+                <p class="post-date">{{ formatDate(post.created_at) }}</p>
                 <div class="post-actions">
                   <button @click.stop="editPost(post)" class="btn btn-small">
                     Bearbeiten
@@ -715,7 +715,15 @@ export default {
       this.selectedPost = null;
     },
     formatDate(dateString) {
+      if (!dateString) return "Unbekanntes Datum";
+
       const date = new Date(dateString);
+
+      // Prüfe ob das Datum gültig ist
+      if (isNaN(date.getTime())) {
+        return "Ungültiges Datum";
+      }
+
       return date.toLocaleDateString("de-DE", {
         year: "numeric",
         month: "short",
