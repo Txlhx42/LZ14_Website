@@ -388,7 +388,7 @@ p {
 .recruitment-section {
   margin-top: 4rem;
   padding: 2rem;
-  background-color: rgba(204, 0, 0, 0.1);
+  background-color: rgba(204, 0, 0, 0.15);
   border-radius: 6px;
   max-width: 600px;
   margin-left: auto;
@@ -401,17 +401,28 @@ p {
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: bold;
+  background: none !important;
+  background-color: transparent !important;
 }
 
 .signature {
   margin-top: 2rem;
   text-align: right;
   font-style: italic;
+  background: none !important;
+  background-color: transparent !important;
 }
 
 .signature p {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.recruitment-section p {
+  background: none !important;
+  background-color: transparent !important;
 }
 </style>
 

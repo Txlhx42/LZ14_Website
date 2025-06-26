@@ -22,6 +22,7 @@ import Footer from "./components/Footer.vue";
   width: 100%;
   overflow-x: hidden;
   position: relative;
+  background: #f0e9d8 !important;
 }
 
 .main-content {
@@ -31,5 +32,6 @@ import Footer from "./components/Footer.vue";
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  background: #f0e9d8 !important;
 }
 </style>

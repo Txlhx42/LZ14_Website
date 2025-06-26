@@ -3,7 +3,7 @@
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
-  --vt-c-cream: #fdf6e3;
+  --vt-c-cream: #f7f3eb;
 
   --vt-c-black: #181818;
   --vt-c-black-soft: #222222;
@@ -65,7 +65,7 @@ body {
   padding: 0;
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background: #f0e9d8 !important;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -78,4 +78,9 @@ body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
+}
+
+/* Zusätzliche Sicherstellung für alle Elemente */
+* {
+  background-color: inherit;
 }
