@@ -225,8 +225,6 @@
                   required
                   placeholder="Inhalt des Beitrags (HTML wird unterstützt)"
                   rows="15"
-                  @input="handleContentInput"
-                  @keydown="handleKeydown"
                   @paste="handlePaste('create', $event)"
                 ></textarea>
               </div>
@@ -417,8 +415,6 @@
                   required
                   placeholder="Inhalt des Beitrags"
                   rows="15"
-                  @input="handleEditContentInput"
-                  @keydown="handleEditKeydown"
                   @paste="handlePaste('edit', $event)"
                 ></textarea>
               </div>
@@ -652,95 +648,6 @@ export default {
         textarea.setSelectionRange(newCursorPos, newCursorPos);
         textarea.focus();
       });
-    },
-
-    handleContentInput() {
-      this.autoCompleteTags("create");
-    },
-
-    handleEditContentInput() {
-      this.autoCompleteTags("edit");
-    },
-
-    handleKeydown(event, mode = "create") {
-      // Automatische Tag-Vervollständigung bei Eingabe von '<'
-      if (event.key === "<") {
-        this.$nextTick(() => {
-          this.autoCompleteTags(mode);
-        });
-      }
-    },
-
-    handleEditKeydown(event) {
-      this.handleKeydown(event, "edit");
-    },
-
-    autoCompleteTags(mode) {
-      const textarea =
-        mode === "edit"
-          ? this.$refs.editContentTextarea
-          : this.$refs.contentTextarea;
-      const content =
-        mode === "edit" ? this.selectedPost.content : this.newPost.content;
-
-      if (!textarea) return;
-
-      const cursorPos = textarea.selectionStart;
-      const beforeCursor = content.substring(0, cursorPos);
-
-      // Suche nach unvollständigen Tags vor dem Cursor
-      const tagMatch = beforeCursor.match(/<(\w+)([^>]*)$/);
-
-      if (tagMatch) {
-        const tagName = tagMatch[1].toLowerCase();
-        const attributes = tagMatch[2];
-
-        // Prüfe ob es ein unterstützter Tag ist
-        if (this.supportedTags.includes(tagName)) {
-          // Bei self-closing Tags nur das schließende /> hinzufügen
-          if (this.selfClosingTags.includes(tagName)) {
-            if (!attributes.includes("/>") && !attributes.includes(">")) {
-              const insertText = attributes + " />";
-              const newContent =
-                beforeCursor + insertText + content.substring(cursorPos);
-
-              if (mode === "edit") {
-                this.selectedPost.content = newContent;
-              } else {
-                this.newPost.content = newContent;
-              }
-
-              // Cursor-Position anpassen
-              this.$nextTick(() => {
-                const newCursorPos = cursorPos + insertText.length;
-                textarea.setSelectionRange(newCursorPos, newCursorPos);
-              });
-            }
-          } else {
-            // Bei normalen Tags schließenden Tag hinzufügen
-            const afterCursor = content.substring(cursorPos);
-            const closingTag = `</${tagName}>`;
-
-            if (!afterCursor.includes(closingTag)) {
-              const insertText = attributes + ">" + closingTag;
-              const newContent = beforeCursor + insertText + afterCursor;
-
-              if (mode === "edit") {
-                this.selectedPost.content = newContent;
-              } else {
-                this.newPost.content = newContent;
-              }
-
-              // Cursor-Position anpassen
-              this.$nextTick(() => {
-                const newCursorPos =
-                  cursorPos + insertText.length - closingTag.length;
-                textarea.setSelectionRange(newCursorPos, newCursorPos);
-              });
-            }
-          }
-        }
-      }
     },
 
     handleStorageChange(event) {

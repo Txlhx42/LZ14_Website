@@ -51,7 +51,7 @@
             <tbody>
               <tr>
                 <th scope="row">Montag (LZ14)</th>
-                <td>19:30-22:00</td>
+                <td>18:30-22:00</td>
               </tr>
               <tr>
                 <th scope="row">Dienstag</th>

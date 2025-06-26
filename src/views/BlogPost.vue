@@ -158,10 +158,10 @@ export default {
 
 .post-image {
   width: 100%;
-  max-height: 400px;
-  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto 2rem auto;
+  overflow: visible;
   border-radius: 8px;
-  margin-bottom: 2rem;
 }
 
 .post-image img {
@@ -258,6 +258,13 @@ export default {
 .back-link:hover {
   background-color: #cc0000;
   color: white;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
 }
 
 @media (max-width: 768px) {

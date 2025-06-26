@@ -1,5 +1,34 @@
 <template>
   <div class="home">
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Löschzug 14 – Horst</h1>
+        <button
+          class="scroll-down"
+          @click="scrollToContent"
+          aria-label="Nach unten scrollen"
+        >
+          <svg
+            class="arrow"
+            aria-hidden="true"
+            role="img"
+            focusable="false"
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="24"
+            viewBox="0 0 22 24"
+          >
+            <polygon
+              fill="#fff"
+              points="11 16 2 7 4.1 4.9 11 11.8 17.9 4.9 20 7"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <div ref="contentStart"></div>
     <h1 class="welcome-title">Herzlich willkommen!</h1>
 
     <div class="content">
@@ -124,9 +153,122 @@
 
 <style scoped>
 .home {
-  padding: 2rem 0;
-  margin-top: 82px;
+  padding: 0;
+  margin: 0;
   overflow-x: hidden;
+  position: relative;
+}
+
+.hero {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+  margin-top: -82px;
+  padding: 0;
+  padding-top: 82px;
+  border: none !important;
+  background: none;
+}
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://ijzekbx4lj.ufs.sh/f/CY86pFwO6QLDCm7QouwO6QLD8xAudoKit9Mn3v7hXlPZIWeB");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(204, 0, 0, 0.85);
+  z-index: 2;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-top: 10vh;
+}
+.hero-title {
+  color: #fff;
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1rem;
+  word-break: break-word;
+  line-height: 1.1;
+}
+.scroll-down {
+  background: none;
+  border: none;
+  width: auto;
+  height: auto;
+  box-shadow: none;
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.arrow {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+.scroll-down:hover .arrow {
+  animation: arrow-bounce 1.5s infinite;
+}
+@keyframes arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .arrow {
+    width: 28px;
+    height: 28px;
+  }
+  .hero-content {
+    padding-top: 2vh;
+  }
+  .recruitment-section {
+    margin-bottom: 2.5rem;
+  }
+}
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.3rem;
+  }
+  .arrow {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .welcome-title {
@@ -135,6 +277,7 @@
   text-align: center;
   font-weight: bold;
   color: #000000;
+  margin-top: 120px;
 }
 
 .content {
@@ -275,5 +418,13 @@ p {
 <script>
 export default {
   name: "Home",
+  methods: {
+    scrollToContent() {
+      const el = this.$refs.contentStart;
+      if (!el) return;
+      const y = el.getBoundingClientRect().top + window.pageYOffset - 90; // 90px Offset für Navbar
+      window.scrollTo({ top: y, behavior: "smooth" });
+    },
+  },
 };
 </script>

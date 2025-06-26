@@ -1,5 +1,9 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="Hauptnavigation">
+  <nav
+    :class="['navbar', { 'navbar-home': $route.path === '/' }]"
+    role="navigation"
+    aria-label="Hauptnavigation"
+  >
     <div class="navbar-left">
       <router-link to="/" class="logo-link" aria-label="Zur Startseite">
         <img
@@ -459,26 +463,46 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 7rem;
-  background-color: rgb(255, 0, 0);
+  background: #cc0000 !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  color: #fff !important;
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+/* Spezielle Regel für die Home-Seite */
+.navbar.navbar-home::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #cc0000;
+  z-index: 999;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  background: #cc0000;
+  border-bottom: none !important;
+  border-top: none !important;
 }
 
 .logo {
   height: 95px;
   width: auto;
+  background: #cc0000;
+  border-bottom: none !important;
+  border-top: none !important;
 }
 
 .emergency {
@@ -527,7 +551,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ff0000;
+  background-color: #cc0000;
   min-width: 160px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -560,6 +584,11 @@
   display: block;
 }
 
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
 .dropdown-button {
   display: flex;
   align-items: center;
@@ -573,6 +602,12 @@
 .dropdown:hover .arrow-down,
 .dropdown:focus-within .arrow-down {
   transform: rotate(180deg);
+}
+
+.logo-link {
+  background: #cc0000;
+  border-bottom: none !important;
+  border-top: none !important;
 }
 
 .logo-link:hover,
@@ -610,6 +645,8 @@
     flex-direction: row;
     align-items: center;
     min-height: 70px;
+    border-bottom: none !important;
+    box-shadow: none !important;
   }
   .navbar-left {
     flex-direction: row;
@@ -617,6 +654,8 @@
     gap: 1rem;
     flex: 1 1 auto;
     min-width: 0;
+    border-bottom: none !important;
+    box-shadow: none !important;
   }
   .emergency {
     font-size: 1rem;
@@ -690,7 +729,7 @@
   width: 100vw;
   height: 100vh;
   max-height: 100vh;
-  background: #b71c1c;
+  background: #cc0000;
   z-index: 2000;
   display: flex;
   flex-direction: column;
@@ -745,6 +784,8 @@
 .mobile-menu-list li {
   border-bottom: 1.5px solid #fff;
   margin-bottom: 0.2rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   font-size: 1.15rem;
   font-weight: bold;
   color: #fff;
@@ -754,6 +795,8 @@
 }
 .mobile-menu-list li:first-child {
   border-top: 1.5px solid #fff;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 .mobile-link {
   color: #fff;
@@ -888,7 +931,7 @@
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  margin-right: 0.1rem;
+  margin-right: 0.7rem;
 }
 .dropdown-arrow-bar {
   width: 2px;
