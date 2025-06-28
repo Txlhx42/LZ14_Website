@@ -1,5 +1,10 @@
 <template>
   <div class="admin-dashboard">
+    <!-- Test-Modus Indikator -->
+    <div v-if="isTestMode" class="test-mode-indicator">
+      <span>🧪 Test-Modus aktiv (1 Min Session)</span>
+    </div>
+
     <div class="admin-header">
       <h1>Admin Dashboard</h1>
       <p>Verwalte Blog-Beiträge für die Aktuelles-Seite</p>
@@ -441,6 +446,14 @@
       </div>
     </div>
 
+    <!-- Session Warning Dialog -->
+    <SessionWarningDialog
+      ref="sessionWarning"
+      @extend="handleSessionExtend"
+      @logout="handleSessionTimeout"
+      @timeout="handleSessionTimeout"
+    />
+
     <div v-if="showDeleteDialog" class="modal-overlay">
       <div class="modal-dialog">
         <h2>Beitrag löschen</h2>
@@ -466,9 +479,14 @@ import {
   rateLimiter,
   secureErrorHandler,
 } from "../utils/security.js";
+import { sessionManager } from "../utils/sessionManager.js";
+import SessionWarningDialog from "../components/SessionWarningDialog.vue";
 
 export default {
   name: "AdminDashboard",
+  components: {
+    SessionWarningDialog,
+  },
   data() {
     return {
       blogPosts: [],
@@ -507,9 +525,17 @@ export default {
       deletePostId: null,
     };
   },
+  computed: {
+    isTestMode() {
+      return sessionManager.isTestMode();
+    },
+  },
   async mounted() {
     await this.checkAuthentication();
     await this.loadBlogPosts();
+
+    // Session Management starten
+    this.startSessionManagement();
 
     // Auth State Änderungen überwachen
     this.authSubscription = authService.onAuthStateChange((event, session) => {
@@ -519,6 +545,9 @@ export default {
     });
   },
   beforeUnmount() {
+    // Session Management stoppen
+    sessionManager.stopSession();
+
     // Auth Subscription entfernen
     if (
       this.authSubscription &&
@@ -540,6 +569,38 @@ export default {
         this.$router.push("/admin-login");
         return;
       }
+    },
+
+    // Session Management Methoden
+    startSessionManagement() {
+      sessionManager.startSession({
+        onWarning: () => {
+          this.$refs.sessionWarning?.show();
+        },
+        onTimeout: () => {
+          this.handleSessionTimeout();
+        },
+        onActivity: () => {
+          // Optional: Hier könnte man eine visuelle Rückmeldung geben
+        },
+      });
+    },
+
+    handleSessionExtend() {
+      sessionManager.extendSession();
+    },
+
+    async handleSessionTimeout() {
+      sessionManager.stopSession();
+
+      try {
+        await authService.signOut();
+      } catch (error) {
+        console.error("Error during session timeout logout:", error);
+      }
+
+      // Zur Login-Seite weiterleiten
+      this.$router.push("/admin-login");
     },
     async loadBlogPosts() {
       this.loading = true;
@@ -787,6 +848,9 @@ export default {
 
     async logout() {
       try {
+        // Session Management stoppen
+        sessionManager.stopSession();
+
         // Auth Subscription vor Logout bereinigen
         if (
           this.authSubscription &&
@@ -853,7 +917,6 @@ export default {
           target.focus();
         });
       }
-      // Sonst: Standardverhalten (nichts tun)
     },
   },
 };
@@ -1257,5 +1320,27 @@ export default {
 
 .btn-secondary:hover {
   background-color: #545b62;
+}
+
+/* Test-Modus Indikator */
+.test-mode-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.test-mode-indicator span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 </style>
