@@ -93,9 +93,9 @@
         <div class="footer-section">
           <h3>Öffnungszeiten</h3>
           <p>LZ 14</p>
-          <p>Mo, 19:30-22:00</p>
+          <p>Mo, 18:30-22:00</p>
           <p class="opening-hours-spacer">JF 14</p>
-          <p>Mi, 18:30-20:30</p>
+          <p>Mi, 18:30-20:00</p>
         </div>
 
         <div class="footer-divider"></div>
@@ -116,7 +116,7 @@
         <div class="copyright-legal">
           <p>
             © 2025
-            <a href="https://lz14.de" class="copyright-link">Löschzug 14</a>
+            <a href="https://jf14.de" class="copyright-link">Löschzug 14</a>
           </p>
           <a href="/rechtliches" class="legal-link">Rechtliches</a>
         </div>

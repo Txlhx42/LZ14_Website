@@ -72,8 +72,8 @@
         >
           <h3 id="meeting-heading">Unsere Treffen</h3>
           <ul aria-label="Informationen zu den Treffen">
-            <li>Jeden Donnerstag</li>
-            <li>Von 18:00 bis 20:00 Uhr</li>
+            <li>Jeden Mittwoch</li>
+            <li>Von 18:30 bis 20:00 Uhr</li>
             <li>Feuerwehrhaus Kampstraße 1, 45899 Gelsenkirchen-Horst</li>
           </ul>
           <p class="contact-note" role="note">

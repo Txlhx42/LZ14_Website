@@ -54,7 +54,8 @@
           href="https://www.gelsenkirchen.de/de/rathaus/buergerservice/feuerwehr/Freiwillige_Feuerwehr.aspx"
           class="link"
           >Freiwilligen Feuerwehr Gelsenkirchen</a
-        >entstanden.
+        >
+        entstanden.
       </p>
 
       <p>Der Löschzug 14 besteht aktuell aus vier Teileinheiten:</p>
@@ -69,7 +70,7 @@
         Zunächst aus der
         <router-link to="/loschzug/einsatzabteilung" class="link"
           >Einsatzabteilung</router-link
-        >, die zur Zeit aus über 40 aktiven, ehrenamtlichen Feuerwehrangehörigen
+        >, die zurzeit aus über 40 aktiven, ehrenamtlichen Feuerwehrangehörigen
         besteht. Sie ist seit 2006 im Feuerwehrhaus am
         <a href="https://maps.app.goo.gl/rxRhnE4gPeLUbDV3A" class="link"
           >Kampstraße 1 in Gelsenkirchen-Horst</a
@@ -94,8 +95,8 @@
         <router-link to="/loschzug/jugendfeuerwehr" class="link"
           >Jugendgruppe 14 – Horst</router-link
         >, die 1989 gegründet wurde und die ebenfalls in der Kampstraße 1
-        beheimatet ist, besteht zur Zeit aus über 20 Jugendlichen im Alter von
-        10 bis 18 Jahren.
+        beheimatet ist, besteht zurzeit aus über 20 Jugendlichen im Alter von 10
+        bis 18 Jahren.
       </p>
 
       <div class="unit-box green">
