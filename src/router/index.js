@@ -11,6 +11,11 @@ import Aktuelles from "../views/Aktuelles.vue";
 import BlogPost from "../views/BlogPost.vue";
 import AdminDashboard from "../views/AdminDashboard.vue";
 import AdminLogin from "../views/AdminLogin.vue";
+import MTF01 from "../views/MTF01.vue";
+import HLF10 from "../views/HLF10.vue";
+import LFKatS from "../views/LFKatS.vue";
+import DekonP01 from "../views/DekonP01.vue";
+import DekonP02 from "../views/DekonP02.vue";
 import { authService } from "../utils/supabase.js";
 
 const router = createRouter({
@@ -83,6 +88,31 @@ const router = createRouter({
           next("/admin-login");
         }
       },
+    },
+    {
+      path: "/technik/14-mtf-01",
+      name: "technik-mtf-01",
+      component: MTF01,
+    },
+    {
+      path: "/technik/14-hlf-10-01",
+      name: "technik-hlf-10-01",
+      component: HLF10,
+    },
+    {
+      path: "/technik/14-lfkats-02",
+      name: "technik-lfkats-02",
+      component: LFKatS,
+    },
+    {
+      path: "/technik/14-dekon-p-01",
+      name: "technik-dekon-p-01",
+      component: DekonP01,
+    },
+    {
+      path: "/technik/14-dekon-p-02",
+      name: "technik-dekon-p-02",
+      component: DekonP02,
     },
   ],
   scrollBehavior(to, from, savedPosition) {

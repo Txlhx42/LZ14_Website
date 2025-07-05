@@ -59,7 +59,6 @@
             to="/loschzug/einsatzabteilung"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             Einsatzabteilung
           </router-link>
@@ -67,7 +66,6 @@
             to="/loschzug/jugendfeuerwehr"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             Jugendfeuerwehr
           </router-link>
@@ -75,7 +73,6 @@
             to="/loschzug/dekon-einheit"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             Dekon-Einheit
           </router-link>
@@ -83,7 +80,6 @@
             to="/loschzug/ehrenabteilung"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             Ehrenabteilung
           </router-link>
@@ -126,7 +122,6 @@
             to="/technik/14-mtf-01"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             14-MTF-01
           </router-link>
@@ -134,7 +129,6 @@
             to="/technik/14-hlf-10-01"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             14-HLF-10-01
           </router-link>
@@ -142,7 +136,6 @@
             to="/technik/14-lfkats-02"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             14-LF20KatS-01
           </router-link>
@@ -150,7 +143,6 @@
             to="/technik/14-dekon-p-01"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             14-DEKON-P-01
           </router-link>
@@ -158,7 +150,6 @@
             to="/technik/14-dekon-p-02"
             role="menuitem"
             class="dropdown-item"
-            tabindex="-1"
           >
             14-DEKON-P-02
           </router-link>
@@ -318,34 +309,34 @@
                 </li>
                 <li>
                   <router-link
-                    to="/technik/14-hlf-01"
+                    to="/technik/14-hlf-10-01"
                     @click.native="closeMobileMenu"
                     class="mobile-link"
-                    >14-HLF-01</router-link
+                    >14-HLF-10-01</router-link
                   >
                 </li>
                 <li>
                   <router-link
-                    to="/technik/14-lf-02"
+                    to="/technik/14-lfkats-02"
                     @click.native="closeMobileMenu"
                     class="mobile-link"
-                    >14-LF-02</router-link
+                    >14-LF20KatS-01</router-link
                   >
                 </li>
                 <li>
                   <router-link
-                    to="/technik/14-dekon-01"
+                    to="/technik/14-dekon-p-01"
                     @click.native="closeMobileMenu"
                     class="mobile-link"
-                    >14-DEKON-01</router-link
+                    >14-DEKON-P-01</router-link
                   >
                 </li>
                 <li>
                   <router-link
-                    to="/technik/14-dekon-02"
+                    to="/technik/14-dekon-p-02"
                     @click.native="closeMobileMenu"
                     class="mobile-link"
-                    >14-DEKON-02</router-link
+                    >14-DEKON-P-02</router-link
                   >
                 </li>
               </ul>
